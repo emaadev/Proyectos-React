@@ -2,17 +2,57 @@ import react from 'react'
 import './App.css'
 import { TwitterFollowCard } from './TwitterFollowCard'
 
+const users = [
+    {
+        userName: "midudev",
+        name: "Miguel Ángel",
+        isFollowing: false
+    },
+    {
+        userName: "s4vitar",
+        name: "Savitar",
+        isFollowing: false
+    },
+    {
+        userName: "manuginobili",
+        name: "Manuel Ginobili",
+        isFollowing: false
+    },
+    {
+        userName: "lionelmessi",
+        name: "Lionel Messi",
+        isFollowing: false
+    },
+]
+
 export function App () {
     return (
         // Paso los nombres por medio de la prop "Children"
         <section className='App'>
-            <TwitterFollowCard userName="midudev">
-                Miguel Ángel
-            </TwitterFollowCard>
+            {
+                users.map( ({userName, name, isFollowing}) =>             
+                        <TwitterFollowCard 
+                        key={userName} // Lo mejor sería utilizar un "id", SÓLO en este caso el userName es único
+                        userName={userName}
+                        initialIsFollowing={isFollowing}
+                        >
+                        {name}
+                        </TwitterFollowCard>
+                )
+                // Otra opción es la siguiente: 
+                // users.map( user => {
+                //     const {userName, name, isFollowing} = user
 
-            <TwitterFollowCard userName="s4vitar">
-                Savitar
-            </TwitterFollowCard>
+                //     return (
+                //         <TwitterFollowCard 
+                //         userName={userName}
+                //         initialIsFollowing={isFollowing}
+                //         >
+                //         {name}
+                //         </TwitterFollowCard>
+                //     )
+                // })
+            }
         </section>
 
         // También puedo utilizarlo como propiedad del componente
