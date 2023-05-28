@@ -17,12 +17,7 @@ const users = [
         userName: "manuginobili",
         name: "Manuel Ginobili",
         isFollowing: false
-    },
-    {
-        userName: "lionelmessi",
-        name: "Lionel Messi",
-        isFollowing: false
-    },
+    }
 ]
 
 export function App () {
