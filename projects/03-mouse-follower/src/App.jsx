@@ -4,6 +4,7 @@ function App() {
   const [enabled, setEnabled] = useState(false)
   const [position, setPosition] = useState({x: 0, y:0})
 
+  // Pointer Move
   useEffect(() => {
     console.log("efecto", [enabled]); 
 
@@ -22,18 +23,28 @@ function App() {
     }
   }, [enabled])
 
+  // Hidden Pointer
+  useEffect(() => {
+    document.body.classList.toggle('no-cursor', enabled)
+
+    return () => {
+      document.body.classList.remove('no-cursor')
+    }
+  }, [enabled])
+
   return (
     <main>
       <div style={{
           position: 'absolute',
-          backgroundColor: '#09f',
+          backgroundColor: 'transparent',
+          border: '1px solid #fff',
           borderRadius: '50%',
           opacity: 0.8,
           pointerEvents: 'none',
           left: -20,
           top: -20,
-          width: 40,
-          height: 40,
+          width: 30,
+          height: 30,
           transform: `translate(${position.x}px, ${position.y}px)`
         }}
       />
