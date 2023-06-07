@@ -1,0 +1,15 @@
+main {
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+    justify-content: center;
+    align-items: center;
+}
+
+main p {
+    max-width: 250px;
+}
+
+main img {
+    max-width: 300px;
+}
